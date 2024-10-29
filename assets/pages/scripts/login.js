@@ -70,22 +70,6 @@ goLoginPage.addEventListener("click", () => {
     loginContainer.classList.remove("hidden");
 });
 
-/* // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailPassword} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD8vtu54ojliQxMCB70SEx1S1ynpeuRaxM",
-  authDomain: "smartbuslogin-b000d.firebaseapp.com",
-  projectId: "smartbuslogin-b000d",
-  storageBucket: "smartbuslogin-b000d.appspot.com",
-  messagingSenderId: "415278521490",
-  appId: "1:415278521490:web:fd8bcb9afc99cacc455a4b"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig); */
 
 const firebaseConfig = {
     apiKey: "AIzaSyD2-zKNWSqkRWHsk49coYSbMfBnywCpdO8",
@@ -111,9 +95,6 @@ const signUpEmail = document.getElementById("Email_input");
 const signUpPassword = document.getElementById("password_input");
 const signUpError = document.getElementById("signUpError");
 
-// const loginContainer = document.querySelector(".login-container");
-// const signUpContainer = document.querySelector(".sign_up_container");
-
 // Handle Login Form Submission
 loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -124,10 +105,10 @@ loginForm.addEventListener("submit", (event) => {
         .then((userCredential) => {
             console.log('Logged in:', userCredential.user);
             window.location.href = "home.html"
-            loginError.textContent = ''; // Clear any previous error messages
+            loginError.textContent = ''; 
         })
         .catch((error) => {
-            loginError.textContent = error.message; // Display error message
+            loginError.textContent = ""; 
         });
 });
 
@@ -141,37 +122,25 @@ signUpForm.addEventListener("submit", (event) => {
         .then((userCredential) => {
             console.log('Signed up:', userCredential.user);
             alert('Sign-up successful, you can now log in.');
-            signUpError.textContent = ''; // Clear any previous error messages
+            signUpError.textContent = '';
             signUpContainer.classList.add('hidden');
             loginContainer.classList.remove('hidden');
 
-            localStorage.setItem("userName",username);
+            localStorage.setItem("userName", username);
         })
         .catch((error) => {
-            signUpError.textContent = error.message; // Display error message
+            signUpError.textContent = "";
         });
 });
 
 
-/* // Login page
-const loginForm = document.getElementById("login_form");
+// Login page
 const loginName = document.getElementById("Name_inputs");
-const loginEmail = document.getElementById("Email_inputs");
-const loginBtn = document.getElementById("login");
 
 // Login page form validation Error space
 const loginNameError = document.getElementById("nameError");
 const loginEmailError = document.getElementById("emailError");
 const loginPasswordError = document.getElementById("passwordError");
-
-const loginError = document.getElementById('loginError');
-const signUpError = document.getElementById('signUpError');
-
-// Sign up page
-const signUpForm = document.getElementById("sign_up_form");
-const signUpName = document.getElementById("Name_input");
-const signUpEmail = document.getElementById("Email_input");
-const signUpNumber = document.getElementById("Number_input");
 
 // Sign up page form validation Error space
 const signUpNameError = document.getElementById("NameError");
@@ -179,4 +148,29 @@ const signUpEmailError = document.getElementById("EmailError");
 const signUpNumberError = document.getElementById("numberError");
 const signUpPasswordError = document.getElementById("passError");
 const signUpCpassError = document.getElementById("cpassError");
-const signUpBtn = document.getElementById("Sign_up");*/
+const signUpBtn = document.getElementById("Sign_up");
+
+// Form validation for login page
+loginForm.addEventListener("submit", (e) =>{
+    if(loginName.value.length === 0){
+        e.preventDefault();
+        loginNameError.textContent = "User name required";
+    }
+    else if(loginName.value.length >= 3 && loginForm.value.length <= 30){
+        e.preventDefault();
+        loginNameError.textContent = "";
+    }
+    else {
+        e.preventDefault();
+        loginNameError.textContent = "The user name must be 3 to 30 character";
+    }
+
+    if(loginEmail.value.length === 0){
+        e.preventDefault();
+        loginEmailError.textContent = "Enter required";
+    }
+    else if(loginEmail.validity.typeMismatch){
+        e.preventDefault();
+        loginEmailError.textContent = "Enter valid email";
+    }
+});
