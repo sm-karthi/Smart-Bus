@@ -156,21 +156,24 @@ loginForm.addEventListener("submit", (e) =>{
         e.preventDefault();
         loginNameError.textContent = "User name required";
     }
-    else if(loginName.value.length >= 3 && loginForm.value.length <= 30){
-        e.preventDefault();
-        loginNameError.textContent = "";
-    }
-    else {
+    else if( 3 > loginName.value.length  && 30 < loginForm.value.length){
         e.preventDefault();
         loginNameError.textContent = "The user name must be 3 to 30 character";
     }
+    else {
+        e.preventDefault();
+        loginNameError.textContent = "";
+    }
 
     if(loginEmail.value.length === 0){
-        e.preventDefault();
+        e.preventDefault();5
         loginEmailError.textContent = "Enter required";
     }
     else if(loginEmail.validity.typeMismatch){
         e.preventDefault();
         loginEmailError.textContent = "Enter valid email";
+    }
+    else{
+        loginEmailError.textContent = "";
     }
 });
