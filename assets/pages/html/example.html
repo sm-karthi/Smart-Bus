@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Popup</title>
+    <style>
+        /* Calendar Icon */
+        .calendar-icon {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .calendar-icon img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Calendar Popup */
+        .calendar-popup {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 10;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #calendarInput {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        #closeCalendar {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #f00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Calendar Trigger Image -->
+    <div class="calendar-icon" id="calendarIcon">
+        <img src="../../image/calander.png" alt="Calendar Icon">
+    </div>
+
+    <!-- Calendar Popup -->
+    <div class="calendar-popup hidden" id="calendarPopup">
+        <input type="date" id="calendarInput">
+        <button id="closeCalendar">Close</button>
+    </div>
+
+    <script>
+        // Elements
+        const calendarIcon = document.getElementById("calendarIcon");
+        const calendarPopup = document.getElementById("calendarPopup");
+        const closeCalendarBtn = document.getElementById("closeCalendar");
+
+        // Show calendar popup on image click
+        calendarIcon.addEventListener("click", () => {
+            calendarPopup.classList.toggle("hidden");
+        });
+
+        // Close calendar popup on button click
+        closeCalendarBtn.addEventListener("click", () => {
+            calendarPopup.classList.add("hidden");
+        });
+
+    </script>
+</body>
+
+</html>
