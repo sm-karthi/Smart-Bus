@@ -1,34 +1,128 @@
-
-/* Sign up page */
-
+/* Login page */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Anton+SC&family=Archivo:ital,wght@0,100..900;1,100..900&family=Dangrek&family=Foldit:wght@100..900&family=Kalnia+Glaze:wght@100..700&family=Kaushan+Script&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Shrikhand&family=Signika+Negative:wght@300..700&family=Yeseva+One&display=swap');
-
-
-.container {
+.login-container, .sign_up_container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+} 
+#loginHeading{
+    margin-bottom: 50px;
+    margin-left: 120px;
+    font-family: "Archivo", sans-serif;
 }
-
-#form {
+#login_form, #sign_up_form{
     display: flex;
     flex-direction: column;
     background-color: white;
     padding: 70px 70px;
     box-shadow: 2px 10px 20px black;
 }
+#Bus_Logo{
+    width: 200px;
+    height: 100px;
+    position: relative;
+    bottom: 50px;
+    left: 80px;
+}
 
-#form input {
+#Name_inputs, #Email_inputs, #password_inputs{
     width: 300px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 20px;
+    border-bottom: 1.5px solid black;
+    margin-left: 50px;
+    padding: 10px 0px;
+}
 
+#Name_inputs, #Email_inputs, #password_inputs:focus{
+    outline: 0;
+}
+#userName_Logo{
+    height: 35px;
+    width: 35px;
+    position: relative;
+    bottom: 45px;
+}
+#email_Logo{
+    height: 30px;
+    width: 30px;
+    position: relative;
+    bottom: 45px;
+}
+#password_Logo{
+    height: 35px;
+    width: 35px;
+    position: relative;
+    bottom: 45px;
+}
+#eye_logos{
+    height: 25px;
+    width: 25px;
+    position: relative;
+    left: 310px;
+    bottom: 83px;
+}
+#login{
+    width: 100%;
+    height: 40px;
+    
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(33, 150, 243);
+    border: 1px solid rgb(33, 150, 243);
+    cursor: pointer;
+}
+
+#go_sign_up{
+    position: relative;
+    top: 30px;
+    left: 60px;
+    font-size: 18px;
+}
+#go_sign_up a{
+    margin-left: 10px;
+}
+
+
+#loginError, #signUpError{
+    color: red;
+    
+}
+
+
+
+
+
+
+
+
+/* Sign up page */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Anton+SC&family=Archivo:ital,wght@0,100..900;1,100..900&family=Dangrek&family=Foldit:wght@100..900&family=Kalnia+Glaze:wght@100..700&family=Kaushan+Script&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Shrikhand&family=Signika+Negative:wght@300..700&family=Yeseva+One&display=swap');
+
+
+
+/* #form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 70px 70px;
+    box-shadow: 2px 10px 20px black;
+} */
+
+#Name_input, #Email_input, #Number_input, #password_input, #Cpassword_input {
+    width: 300px;
     margin-top: 5px;
     margin-bottom: 15px;
     border: none;
@@ -37,12 +131,12 @@
     margin-left: 50px;
 }
 
-#form input:focus {
+#Name_input, #Email_input, #Number_input, #password_input, #Cpassword_input:focus {
     outline: 0;
 
 }
 
-#form button {
+#Sign_up {
     width: 100%;
     height: 40px;
     margin-top: 40px;
@@ -54,16 +148,13 @@
     cursor: pointer;
 }
 
-.container #form h1 {
+#sign_up_heading {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     font-family: "Archivo", sans-serif;
 }
 
-#form label {
-    font-size: 22px;
-    margin-top: 15px;
-}
+
 
 #userName_logo {
     width: 35px;
@@ -109,14 +200,14 @@
     left: 70px;
 }
 
-p {
+#go_login_page {
     position: relative;
     top: 30px;
     left: 60px;
     font-size: 18px;
 }
 
-p a {
+#go_login_page a {
     margin-left: 10px;
 }
 
@@ -124,7 +215,7 @@ p a {
     width: 25px;
     height: 25px;
     position: absolute;
-    left: 900px;
+    left: 890px;
     bottom: 340px;
     cursor: pointer;
 }
@@ -133,7 +224,10 @@ p a {
     width: 25px;
     height: 25px;
     position: absolute;
-    left: 900px;
+    left: 890px;
     bottom: 260px;
     cursor: pointer;
+}
+.hidden {
+    display: none;
 }
